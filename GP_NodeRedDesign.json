@@ -1,0 +1,1639 @@
+[
+    {
+        "id": "a7a5978db9ea93b8",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "857de329e3c0edd5",
+        "type": "mqtt in",
+        "z": "a7a5978db9ea93b8",
+        "name": "",
+        "topic": "Green_Panther/Soil_Nitrogen",
+        "qos": "1",
+        "datatype": "auto-detect",
+        "broker": "8fde701c.6c6c3",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 360,
+        "y": 240,
+        "wires": [
+            [
+                "2bbeaea3ba583e13",
+                "477afc252ead3186",
+                "606df2668ad8f886"
+            ]
+        ]
+    },
+    {
+        "id": "477afc252ead3186",
+        "type": "ui_gauge",
+        "z": "a7a5978db9ea93b8",
+        "name": "",
+        "group": "3070a2cedbbf705e",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Gauge_Soil_Nitorgen",
+        "label": "mg/kg",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 720,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "2bbeaea3ba583e13",
+        "type": "ui_chart",
+        "z": "a7a5978db9ea93b8",
+        "name": "",
+        "group": "3070a2cedbbf705e",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "label": "Chart_Soil_Nitorgen",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 720,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "606df2668ad8f886",
+        "type": "json",
+        "z": "a7a5978db9ea93b8",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 490,
+        "y": 400,
+        "wires": [
+            [
+                "7ed8f4f5a74458b4"
+            ]
+        ]
+    },
+    {
+        "id": "7ed8f4f5a74458b4",
+        "type": "function",
+        "z": "a7a5978db9ea93b8",
+        "name": "function 1",
+        "func": "if (msg.payload < 40) {\n    //Concatenate a play\n    msg.payload = \"Value lower than  expected\"\n}\nelse {\n    //Pop out first game in list and add a new one at the end\n   // Remove an item from the beginning of an array.\n    msg.payload = \"Accurate value\"\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 400,
+        "wires": [
+            [
+                "184a6d2cc203b9d2"
+            ]
+        ]
+    },
+    {
+        "id": "184a6d2cc203b9d2",
+        "type": "ui_text",
+        "z": "a7a5978db9ea93b8",
+        "group": "3070a2cedbbf705e",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Output_Nitrogen",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 890,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "2dae7c6208411649",
+        "type": "mqtt in",
+        "z": "a7a5978db9ea93b8",
+        "name": "",
+        "topic": "Green_Panther/Soil_Potassium",
+        "qos": "1",
+        "datatype": "auto-detect",
+        "broker": "8fde701c.6c6c3",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 210,
+        "y": 560,
+        "wires": [
+            [
+                "c77f6c48bd3aa60a",
+                "f726bca1b3adb79d",
+                "16ccfd9acf7d0430"
+            ]
+        ]
+    },
+    {
+        "id": "c77f6c48bd3aa60a",
+        "type": "ui_gauge",
+        "z": "a7a5978db9ea93b8",
+        "name": "",
+        "group": "1d838e8eea4cb6e3",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Gauge_Soil_Potassium",
+        "label": "mg/kg",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 710,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "f726bca1b3adb79d",
+        "type": "ui_chart",
+        "z": "a7a5978db9ea93b8",
+        "name": "",
+        "group": "1d838e8eea4cb6e3",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "label": "Chart_Soil_Potassium",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 700,
+        "y": 620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "16ccfd9acf7d0430",
+        "type": "json",
+        "z": "a7a5978db9ea93b8",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 490,
+        "y": 740,
+        "wires": [
+            [
+                "fd5ac893b241ac8a"
+            ]
+        ]
+    },
+    {
+        "id": "fd5ac893b241ac8a",
+        "type": "function",
+        "z": "a7a5978db9ea93b8",
+        "name": "function 2",
+        "func": "if (msg.payload < 20) {\n    //Concatenate a play\n    msg.payload = \"Value lower than  expected\"\n}\nelse {\n    //Pop out first game in list and add a new one at the end\n   // Remove an item from the beginning of an array.\n    msg.payload = \"Accurate Value\"\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 740,
+        "wires": [
+            [
+                "fac754a844ac6c1d"
+            ]
+        ]
+    },
+    {
+        "id": "fac754a844ac6c1d",
+        "type": "ui_text",
+        "z": "a7a5978db9ea93b8",
+        "group": "1d838e8eea4cb6e3",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Output_Potassium",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 890,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "58f7e2ab246e25e9",
+        "type": "mqtt in",
+        "z": "a7a5978db9ea93b8",
+        "name": "",
+        "topic": "Green_Panther/Soil_Phosphorus",
+        "qos": "1",
+        "datatype": "auto-detect",
+        "broker": "8fde701c.6c6c3",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 210,
+        "y": 900,
+        "wires": [
+            [
+                "8e9b505c8f7db8eb",
+                "1924b95ac4228b23",
+                "af3dd0f894a734ec"
+            ]
+        ]
+    },
+    {
+        "id": "8e9b505c8f7db8eb",
+        "type": "ui_gauge",
+        "z": "a7a5978db9ea93b8",
+        "name": "",
+        "group": "ef55d55981ba9e4d",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Gauge_Soil_Phosphorus",
+        "label": "mg/kg",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 730,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "1924b95ac4228b23",
+        "type": "ui_chart",
+        "z": "a7a5978db9ea93b8",
+        "name": "",
+        "group": "ef55d55981ba9e4d",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "Chart_Soil_Phosphorus",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 730,
+        "y": 980,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "af3dd0f894a734ec",
+        "type": "json",
+        "z": "a7a5978db9ea93b8",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 550,
+        "y": 1080,
+        "wires": [
+            [
+                "1aa60c5947c4f632"
+            ]
+        ]
+    },
+    {
+        "id": "1aa60c5947c4f632",
+        "type": "function",
+        "z": "a7a5978db9ea93b8",
+        "name": "function 3",
+        "func": "if (msg.payload < 20) {\n    //Concatenate a play\n    msg.payload = \"Value lower than  expected\"\n}\nelse {\n    //Pop out first game in list and add a new one at the end\n   // Remove an item from the beginning of an array.\n    msg.payload = \"Accurate Value\"\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 1080,
+        "wires": [
+            [
+                "61860db4f75ea9ea"
+            ]
+        ]
+    },
+    {
+        "id": "61860db4f75ea9ea",
+        "type": "ui_text",
+        "z": "a7a5978db9ea93b8",
+        "group": "ef55d55981ba9e4d",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Output_Phosphorus",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 960,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "9b105b9370b94e7c",
+        "type": "mqtt in",
+        "z": "a7a5978db9ea93b8",
+        "name": "Green_Panther/Soil_Moisture",
+        "topic": "Green_Panther/Soil_Moisture",
+        "qos": "1",
+        "datatype": "auto-detect",
+        "broker": "8fde701c.6c6c3",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 200,
+        "y": 1260,
+        "wires": [
+            [
+                "38a9a89029427059",
+                "8e2a1780439445fc",
+                "2b5d5121e0714452",
+                "76514cd292cb967f"
+            ]
+        ]
+    },
+    {
+        "id": "38a9a89029427059",
+        "type": "ui_gauge",
+        "z": "a7a5978db9ea93b8",
+        "name": "",
+        "group": "8d2147256f196673",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Gauge_Soil_Moisture",
+        "label": "units",
+        "format": "{{value}}",
+        "min": "300",
+        "max": "900",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 720,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "8e2a1780439445fc",
+        "type": "ui_chart",
+        "z": "a7a5978db9ea93b8",
+        "name": "",
+        "group": "8d2147256f196673",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "label": "Chart_Soil_Moisture",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 720,
+        "y": 1340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2b5d5121e0714452",
+        "type": "json",
+        "z": "a7a5978db9ea93b8",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 550,
+        "y": 1440,
+        "wires": [
+            [
+                "32bf77ec60889069",
+                "e3064039a880068e"
+            ]
+        ]
+    },
+    {
+        "id": "32bf77ec60889069",
+        "type": "function",
+        "z": "a7a5978db9ea93b8",
+        "name": "function 4",
+        "func": "if (msg.payload < 400) {\n    //Concatenate a play\n    msg.payload = \"Value lower than  expected\"\n}\nelse {\n    //Pop out first game in list and add a new one at the end\n   // Remove an item from the beginning of an array.\n    msg.payload = \"Accurate value\"\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 1440,
+        "wires": [
+            [
+                "f5f8b8ed99cd7df4"
+            ]
+        ]
+    },
+    {
+        "id": "f5f8b8ed99cd7df4",
+        "type": "ui_text",
+        "z": "a7a5978db9ea93b8",
+        "group": "8d2147256f196673",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Output_Moisture",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 950,
+        "y": 1440,
+        "wires": []
+    },
+    {
+        "id": "1aa3983fc3f1e1e8",
+        "type": "mqtt in",
+        "z": "a7a5978db9ea93b8",
+        "name": "",
+        "topic": "Green_Panther/Microphone",
+        "qos": "1",
+        "datatype": "auto-detect",
+        "broker": "8fde701c.6c6c3",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 200,
+        "y": 1620,
+        "wires": [
+            [
+                "acf3464f3242bf3a",
+                "487465a6886ebbbc",
+                "1d7f518160b19a77"
+            ]
+        ]
+    },
+    {
+        "id": "acf3464f3242bf3a",
+        "type": "ui_gauge",
+        "z": "a7a5978db9ea93b8",
+        "name": "",
+        "group": "04a8c4676e5d7aed",
+        "order": 11,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Gauge_Microphone",
+        "label": "Hz",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "2000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 710,
+        "y": 1620,
+        "wires": []
+    },
+    {
+        "id": "487465a6886ebbbc",
+        "type": "ui_chart",
+        "z": "a7a5978db9ea93b8",
+        "name": "",
+        "group": "04a8c4676e5d7aed",
+        "order": 10,
+        "width": 0,
+        "height": 0,
+        "label": "Chart_Microphone",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 710,
+        "y": 1680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1d7f518160b19a77",
+        "type": "json",
+        "z": "a7a5978db9ea93b8",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 550,
+        "y": 1800,
+        "wires": [
+            [
+                "83518471b1d60122"
+            ]
+        ]
+    },
+    {
+        "id": "83518471b1d60122",
+        "type": "function",
+        "z": "a7a5978db9ea93b8",
+        "name": "function 5",
+        "func": "if (msg.payload < 1100) {\n    //Concatenate a play\n    msg.payload = \"Sad Plant detected\"\n}\nelse {\n    //Pop out first game in list and add a new one at the end\n   // Remove an item from the beginning of an array.\n    msg.payload = \"Happy Plant detected\"\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 1800,
+        "wires": [
+            [
+                "39d9099e68c9206d"
+            ]
+        ]
+    },
+    {
+        "id": "39d9099e68c9206d",
+        "type": "ui_text",
+        "z": "a7a5978db9ea93b8",
+        "group": "04a8c4676e5d7aed",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Output_Microphone",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 960,
+        "y": 1800,
+        "wires": []
+    },
+    {
+        "id": "420f394a068faea3",
+        "type": "ui_numeric",
+        "z": "a7a5978db9ea93b8",
+        "name": "",
+        "label": "Soil_Nitrogen_Input",
+        "tooltip": "",
+        "group": "3070a2cedbbf705e",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "step": 1,
+        "className": "",
+        "x": 210,
+        "y": 400,
+        "wires": [
+            [
+                "606df2668ad8f886",
+                "477afc252ead3186",
+                "2bbeaea3ba583e13"
+            ]
+        ]
+    },
+    {
+        "id": "e4201afa9d3bf755",
+        "type": "ui_numeric",
+        "z": "a7a5978db9ea93b8",
+        "name": "",
+        "label": "Soil_Potassium_Input",
+        "tooltip": "",
+        "group": "1d838e8eea4cb6e3",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "step": 1,
+        "className": "",
+        "x": 200,
+        "y": 740,
+        "wires": [
+            [
+                "16ccfd9acf7d0430",
+                "c77f6c48bd3aa60a",
+                "f726bca1b3adb79d"
+            ]
+        ]
+    },
+    {
+        "id": "c5ca72adf274b3b3",
+        "type": "ui_numeric",
+        "z": "a7a5978db9ea93b8",
+        "name": "",
+        "label": "Soil_Phosphorus_Input",
+        "tooltip": "",
+        "group": "ef55d55981ba9e4d",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "step": 1,
+        "className": "",
+        "x": 210,
+        "y": 1080,
+        "wires": [
+            [
+                "af3dd0f894a734ec",
+                "8e9b505c8f7db8eb",
+                "1924b95ac4228b23"
+            ]
+        ]
+    },
+    {
+        "id": "60e3721cb858f823",
+        "type": "ui_numeric",
+        "z": "a7a5978db9ea93b8",
+        "name": "",
+        "label": "Soil_Moisture_Input",
+        "tooltip": "",
+        "group": "8d2147256f196673",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "step": 1,
+        "className": "",
+        "x": 200,
+        "y": 1440,
+        "wires": [
+            [
+                "2b5d5121e0714452",
+                "38a9a89029427059",
+                "8e2a1780439445fc"
+            ]
+        ]
+    },
+    {
+        "id": "4f7a07999217da91",
+        "type": "mqtt out",
+        "z": "a7a5978db9ea93b8",
+        "name": "Sprinkler",
+        "topic": "Sprinkler",
+        "qos": "1",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "8fde701c.6c6c3",
+        "x": 1140,
+        "y": 1600,
+        "wires": []
+    },
+    {
+        "id": "e3064039a880068e",
+        "type": "switch",
+        "z": "a7a5978db9ea93b8",
+        "name": "Sprinkler",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "400",
+                "vt": "str"
+            },
+            {
+                "t": "gte",
+                "v": "400",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 760,
+        "y": 1520,
+        "wires": [
+            [
+                "efb3ca3d1acf0a76"
+            ],
+            [
+                "6b464d3b61a3b43c"
+            ]
+        ]
+    },
+    {
+        "id": "efb3ca3d1acf0a76",
+        "type": "template",
+        "z": "a7a5978db9ea93b8",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "1",
+        "output": "str",
+        "x": 920,
+        "y": 1520,
+        "wires": [
+            [
+                "4f7a07999217da91"
+            ]
+        ]
+    },
+    {
+        "id": "6b464d3b61a3b43c",
+        "type": "template",
+        "z": "a7a5978db9ea93b8",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "0",
+        "output": "str",
+        "x": 920,
+        "y": 1580,
+        "wires": [
+            [
+                "4f7a07999217da91"
+            ]
+        ]
+    },
+    {
+        "id": "76514cd292cb967f",
+        "type": "debug",
+        "z": "a7a5978db9ea93b8",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 140,
+        "y": 1220,
+        "wires": []
+    },
+    {
+        "id": "d2f38fe21f83f8c7",
+        "type": "mqtt in",
+        "z": "a7a5978db9ea93b8",
+        "name": "Green_Panther/Soil_Temperature",
+        "topic": "Green_Panther/Soil_Temperature",
+        "qos": "1",
+        "datatype": "auto-detect",
+        "broker": "8fde701c.6c6c3",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 230,
+        "y": 1940,
+        "wires": [
+            [
+                "f3fdddf49b9a0eb5",
+                "83e6c18d1b972a1f",
+                "a068c2db5fbc8651",
+                "41708561064c7b28"
+            ]
+        ]
+    },
+    {
+        "id": "f3fdddf49b9a0eb5",
+        "type": "ui_gauge",
+        "z": "a7a5978db9ea93b8",
+        "name": "",
+        "group": "420ee41b231eef6d",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Gauge_Soil_Temperature",
+        "label": "degree Celsius",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "40",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 750,
+        "y": 1940,
+        "wires": []
+    },
+    {
+        "id": "83e6c18d1b972a1f",
+        "type": "ui_chart",
+        "z": "a7a5978db9ea93b8",
+        "name": "",
+        "group": "420ee41b231eef6d",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "label": "Chart_Soil_Temperature",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 750,
+        "y": 2020,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a068c2db5fbc8651",
+        "type": "json",
+        "z": "a7a5978db9ea93b8",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 570,
+        "y": 2120,
+        "wires": [
+            [
+                "3a8a2ea71fa72890"
+            ]
+        ]
+    },
+    {
+        "id": "3a8a2ea71fa72890",
+        "type": "function",
+        "z": "a7a5978db9ea93b8",
+        "name": "function 6",
+        "func": "if (msg.payload > 30) {\n    //Concatenate a play\n    msg.payload = \"Value higher than  expected\"\n}\nelse {\n    //Pop out first game in list and add a new one at the end\n   // Remove an item from the beginning of an array.\n    msg.payload = \"Accurate value\"\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 760,
+        "y": 2120,
+        "wires": [
+            [
+                "95b4e293b4f5f045"
+            ]
+        ]
+    },
+    {
+        "id": "95b4e293b4f5f045",
+        "type": "ui_text",
+        "z": "a7a5978db9ea93b8",
+        "group": "420ee41b231eef6d",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Output_Temperature",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 980,
+        "y": 2120,
+        "wires": []
+    },
+    {
+        "id": "074d4301330fc9d1",
+        "type": "ui_numeric",
+        "z": "a7a5978db9ea93b8",
+        "name": "",
+        "label": "Soil_Temperature_Input",
+        "tooltip": "",
+        "group": "420ee41b231eef6d",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "step": 1,
+        "className": "",
+        "x": 230,
+        "y": 2120,
+        "wires": [
+            [
+                "a068c2db5fbc8651",
+                "f3fdddf49b9a0eb5",
+                "83e6c18d1b972a1f"
+            ]
+        ]
+    },
+    {
+        "id": "41708561064c7b28",
+        "type": "debug",
+        "z": "a7a5978db9ea93b8",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 160,
+        "y": 1900,
+        "wires": []
+    },
+    {
+        "id": "820b4ce9d1fc7d79",
+        "type": "ui_switch",
+        "z": "a7a5978db9ea93b8",
+        "name": "",
+        "label": "Sprinkler_switch",
+        "tooltip": "",
+        "group": "8d2147256f196673",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "1",
+        "onvalueType": "num",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "0",
+        "offvalueType": "num",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 940,
+        "y": 1660,
+        "wires": [
+            [
+                "4f7a07999217da91"
+            ]
+        ]
+    },
+    {
+        "id": "e88319c5700d8005",
+        "type": "ui_media",
+        "z": "a7a5978db9ea93b8",
+        "group": "f6e740390b49dd77",
+        "name": "",
+        "width": 0,
+        "height": 0,
+        "order": 1,
+        "category": "Logo",
+        "file": "logoESE516 (1).jpg",
+        "layout": "adjust",
+        "showcontrols": true,
+        "loop": true,
+        "onstart": false,
+        "scope": "local",
+        "tooltip": "",
+        "x": 290,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6ec8e632bec2782f",
+        "type": "ui_media",
+        "z": "a7a5978db9ea93b8",
+        "group": "f6e740390b49dd77",
+        "name": "",
+        "width": 0,
+        "height": 0,
+        "order": 2,
+        "category": "Logo",
+        "file": "UniversityofPennsylvania_FullLogo_RGB.png",
+        "layout": "adjust",
+        "showcontrols": true,
+        "loop": true,
+        "onstart": false,
+        "scope": "local",
+        "tooltip": "",
+        "x": 290,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dfa237d75e14165f",
+        "type": "ui_spacer",
+        "z": "a7a5978db9ea93b8",
+        "name": "spacer",
+        "group": "3070a2cedbbf705e",
+        "order": 3,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "5819b3db3ae88757",
+        "type": "ui_spacer",
+        "z": "a7a5978db9ea93b8",
+        "name": "spacer",
+        "group": "ef55d55981ba9e4d",
+        "order": 7,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "1ff1b35ae8cf693f",
+        "type": "ui_spacer",
+        "z": "a7a5978db9ea93b8",
+        "name": "spacer",
+        "group": "04a8c4676e5d7aed",
+        "order": 5,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "19b2dfda32bebbe8",
+        "type": "ui_spacer",
+        "z": "a7a5978db9ea93b8",
+        "name": "spacer",
+        "group": "04a8c4676e5d7aed",
+        "order": 2,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "f8c112420c5b1f55",
+        "type": "ui_spacer",
+        "z": "a7a5978db9ea93b8",
+        "name": "spacer",
+        "group": "04a8c4676e5d7aed",
+        "order": 3,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "7823c61a26e184b5",
+        "type": "ui_spacer",
+        "z": "a7a5978db9ea93b8",
+        "name": "spacer",
+        "group": "04a8c4676e5d7aed",
+        "order": 9,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "b632d3c112999f5a",
+        "type": "ui_spacer",
+        "z": "a7a5978db9ea93b8",
+        "name": "spacer",
+        "group": "04a8c4676e5d7aed",
+        "order": 8,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "1041b561aa90ca9f",
+        "type": "ui_spacer",
+        "z": "a7a5978db9ea93b8",
+        "name": "spacer",
+        "group": "04a8c4676e5d7aed",
+        "order": 7,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "9ad88de4f03f2cd2",
+        "type": "ui_spacer",
+        "z": "a7a5978db9ea93b8",
+        "name": "spacer",
+        "group": "420ee41b231eef6d",
+        "order": 4,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "7d233996f4bac48b",
+        "type": "ui_spacer",
+        "z": "a7a5978db9ea93b8",
+        "name": "spacer",
+        "group": "04a8c4676e5d7aed",
+        "order": 12,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "b27da8b840f2e5e6",
+        "type": "ui_spacer",
+        "z": "a7a5978db9ea93b8",
+        "name": "spacer",
+        "group": "ef55d55981ba9e4d",
+        "order": 4,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "5ad5457327ed25f4",
+        "type": "ui_spacer",
+        "z": "a7a5978db9ea93b8",
+        "name": "spacer",
+        "group": "8d2147256f196673",
+        "order": 3,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "5d0680b630b0be36",
+        "type": "ui_spacer",
+        "z": "a7a5978db9ea93b8",
+        "name": "spacer",
+        "group": "04a8c4676e5d7aed",
+        "order": 4,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "96ef3e7aacf9ea5d",
+        "type": "ui_spacer",
+        "z": "a7a5978db9ea93b8",
+        "name": "spacer",
+        "group": "420ee41b231eef6d",
+        "order": 3,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "f63d83c2356c6ab1",
+        "type": "ui_spacer",
+        "z": "a7a5978db9ea93b8",
+        "name": "spacer",
+        "group": "ef55d55981ba9e4d",
+        "order": 6,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "61be47c26622381a",
+        "type": "ui_spacer",
+        "z": "a7a5978db9ea93b8",
+        "name": "spacer",
+        "group": "8d2147256f196673",
+        "order": 5,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "df967fee5a2567b6",
+        "type": "ui_spacer",
+        "z": "a7a5978db9ea93b8",
+        "name": "spacer",
+        "group": "420ee41b231eef6d",
+        "order": 7,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "5bf0ee3459474f2e",
+        "type": "ui_spacer",
+        "z": "a7a5978db9ea93b8",
+        "name": "spacer",
+        "group": "3070a2cedbbf705e",
+        "order": 9,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "10fc3d2a99a47fe8",
+        "type": "ui_spacer",
+        "z": "a7a5978db9ea93b8",
+        "name": "spacer",
+        "group": "3070a2cedbbf705e",
+        "order": 7,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "c473387d185fbcdb",
+        "type": "ui_spacer",
+        "z": "a7a5978db9ea93b8",
+        "name": "spacer",
+        "group": "3070a2cedbbf705e",
+        "order": 5,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "abbbbab12c8cd418",
+        "type": "ui_spacer",
+        "z": "a7a5978db9ea93b8",
+        "name": "spacer",
+        "group": "1d838e8eea4cb6e3",
+        "order": 5,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "51e2ffa5e95b0823",
+        "type": "ui_spacer",
+        "z": "a7a5978db9ea93b8",
+        "name": "spacer",
+        "group": "1d838e8eea4cb6e3",
+        "order": 3,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "9d4bdb93c5c42113",
+        "type": "ui_spacer",
+        "z": "a7a5978db9ea93b8",
+        "name": "spacer",
+        "group": "1d838e8eea4cb6e3",
+        "order": 9,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "b74e7e89bcc71b34",
+        "type": "ui_spacer",
+        "z": "a7a5978db9ea93b8",
+        "name": "spacer",
+        "group": "1d838e8eea4cb6e3",
+        "order": 7,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "41043c3687bb0f86",
+        "type": "ui_spacer",
+        "z": "a7a5978db9ea93b8",
+        "name": "spacer",
+        "group": "3070a2cedbbf705e",
+        "order": 8,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "0f88a8e450475cc3",
+        "type": "ui_spacer",
+        "z": "a7a5978db9ea93b8",
+        "name": "spacer",
+        "group": "1d838e8eea4cb6e3",
+        "order": 8,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "92674f58a59c50a6",
+        "type": "ui_spacer",
+        "z": "a7a5978db9ea93b8",
+        "name": "spacer",
+        "group": "ef55d55981ba9e4d",
+        "order": 3,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "0e5321a8dbe45a14",
+        "type": "ui_spacer",
+        "z": "a7a5978db9ea93b8",
+        "name": "spacer",
+        "group": "04a8c4676e5d7aed",
+        "order": 6,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "8fde701c.6c6c3",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "compatmode": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "3070a2cedbbf705e",
+        "type": "ui_group",
+        "name": "Soil Nitrogen",
+        "tab": "c19ddfcf.06e82",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "1d838e8eea4cb6e3",
+        "type": "ui_group",
+        "name": "Soil Potassium",
+        "tab": "c19ddfcf.06e82",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ef55d55981ba9e4d",
+        "type": "ui_group",
+        "name": "Soil Phosphorus",
+        "tab": "c19ddfcf.06e82",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "8d2147256f196673",
+        "type": "ui_group",
+        "name": "Soil Moisture",
+        "tab": "c19ddfcf.06e82",
+        "order": 5,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "04a8c4676e5d7aed",
+        "type": "ui_group",
+        "name": "Microphone",
+        "tab": "c19ddfcf.06e82",
+        "order": 6,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "420ee41b231eef6d",
+        "type": "ui_group",
+        "name": "Soil_Temperature",
+        "tab": "c19ddfcf.06e82",
+        "order": 7,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "f6e740390b49dd77",
+        "type": "ui_group",
+        "name": "Green Panther ESE 516",
+        "tab": "c19ddfcf.06e82",
+        "order": 8,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c19ddfcf.06e82",
+        "type": "ui_tab",
+        "name": "Green_Panther",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
